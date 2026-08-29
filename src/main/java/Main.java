@@ -1,8 +1,13 @@
+import commands.Command;
+import server.ShellServer;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        // TODO: Uncomment the code below to pass the first stage
-         System.out.print("$ ");
+        Map<String, Command> commands = new HashMap<>();
+        ShellServer.start(commands);
     }
 }
