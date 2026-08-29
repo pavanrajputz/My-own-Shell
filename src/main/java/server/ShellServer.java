@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class ShellServer {
     public static void start(Map<String, Command> commands) {
         while(true){
-            System.out.println("$ ");
+            System.out.print("$ ");
             Scanner sc = new Scanner(System.in);
             String line = sc.nextLine();
             ParsedCommands command = ParsedCommands.fromInput(line);
