@@ -7,6 +7,8 @@ public class ParsedCommands {
     public List<String> args;
 
     public static ParsedCommands fromInput(String line ){
-        ParsedCommands parsedCommands = new ParsedCommands();
+        ParsedCommands res = new ParsedCommands();
+        res.command = line;
+        return res;
     }
 }
