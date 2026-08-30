@@ -31,6 +31,7 @@ public class ExitCommand implements Command{
                 report.exitCode = Integer.parseInt(arg);
             }catch(NumberFormatException e){
                 System.out.println("exit: " +args+ " : numeric argument required");
+                report.success = false;
             }
         }
         return report;
