@@ -8,7 +8,8 @@ public class ParsedCommands {
 
     public static ParsedCommands fromInput(String line ){
         ParsedCommands res = new ParsedCommands();
-        res.command = line;
+        String[] parts = line.split(" ");
+        res.command = parts[0];
         return res;
     }
 }
