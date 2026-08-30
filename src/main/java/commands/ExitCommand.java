@@ -7,7 +7,7 @@ import java.util.List;
 public class ExitCommand implements Command{
     @Override
     public void execute(ParsedCommands command) {
-        StatusReport report = new StatusReport();
+        StatusReport report = checkArgs(command.args);
         if(report.success){
             System.exit(report.exitCode);
         }

@@ -1,5 +1,7 @@
 package parser;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ParsedCommands {
@@ -10,6 +12,7 @@ public class ParsedCommands {
         ParsedCommands res = new ParsedCommands();
         String[] parts = line.split(" ");
         res.command = parts[0];
+        res.args = Arrays.asList(parts).subList(1, parts.length);
         return res;
     }
 }
