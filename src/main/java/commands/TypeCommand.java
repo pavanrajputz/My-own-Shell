@@ -19,7 +19,7 @@ public class TypeCommand implements Command {
                 String type = commands.get(arg).type();
                 System.out.println(type);
             }else{
-                System.out.println("type: "+arg +": not found");
+                System.out.println(arg +": not found");
             }
         }
     }
