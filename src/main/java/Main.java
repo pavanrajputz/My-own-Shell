@@ -1,4 +1,5 @@
 import commands.Command;
+import commands.EchoCommand;
 import commands.ExitCommand;
 import server.ShellServer;
 
@@ -9,6 +10,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Map<String, Command> commands = new HashMap<>();
         commands.put("exit", new ExitCommand());
+        commands.put("echo", new EchoCommand());
         ShellServer.start(commands);
     }
 }
