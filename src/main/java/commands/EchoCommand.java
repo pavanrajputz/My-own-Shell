@@ -11,4 +11,9 @@ public class EchoCommand implements Command{
             System.out.println(String.join(" ", command.args));
         }
     }
+
+    @Override
+    public String type() {
+        return "echo is shell builtin";
+    }
 }

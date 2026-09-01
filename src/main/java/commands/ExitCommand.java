@@ -41,4 +41,9 @@ public class ExitCommand implements Command{
         public boolean success;
         public int exitCode;
     }
+
+    @Override
+    public String type() {
+        return "exit is a shell builtin";
+    }
 }
