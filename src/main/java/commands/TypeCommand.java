@@ -36,7 +36,9 @@ public class TypeCommand implements Command {
     private boolean checkInPath(String arg){
         List<String> paths = CommandUtils.checkCommandInPaths(arg);
         if(!paths.isEmpty()){
-
+            for(String location: paths){
+                System.out.println(arg + " is " + location);
+            }
             return true;
         }
         return false;
