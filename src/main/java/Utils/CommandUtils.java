@@ -23,7 +23,6 @@ public class CommandUtils {
 
     public static List<String> getPaths(){
         String path = System.getenv("PATH");
-        System.out.println(path);
         return Arrays.stream(path.split(":")).collect(Collectors.toList());
     }
 }
