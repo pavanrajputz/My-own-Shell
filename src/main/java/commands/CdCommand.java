@@ -1,6 +1,10 @@
 package commands;
 
+import Utils.CommandUtils;
 import parser.ParsedCommands;
+
+import java.io.File;
+import java.net.URLDecoder;
 
 public class CdCommand implements Command{
     @Override
@@ -14,11 +18,26 @@ public class CdCommand implements Command{
         }
 
         if(commands.args.getFirst().equals("~")){
-            System.out.println("cd :too many arguments");
+            System.setProperty("user.dir", getHomeDir());
             return;
         }
 
         String targetPath = commands.args.getFirst();
+
+        try{
+            File targetDir = CommandUtils.resolvePath(targetPath);
+            if(!targetDir.exists()){
+                System.out.println("cd: "+commands.args.getFirst()+": No such file or directory");
+                return;
+            }
+            if(!targetDir.isDirectory()){
+                System.out.println("cd: "+commands.args.getFirst()+": Not a directory");
+                return;
+            }
+            System.setProperty("user.dir", targetDir.getAbsolutePath());
+        }catch (Exception e){
+            System.out.println("cd: "+commands.args.getFirst()+": "+e.getMessage());
+        }
 
     }
 

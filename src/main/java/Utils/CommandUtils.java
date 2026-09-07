@@ -25,4 +25,14 @@ public class CommandUtils {
         String path = System.getenv("PATH");
         return Arrays.stream(path.split(":")).collect(Collectors.toList());
     }
+
+    public static File resolvePath(String targetPath) {
+        File targetDir = new File(targetPath);
+
+        if(!targetDir.isAbsolute()){
+            targetDir = new File(System.getProperty("user.dir"), targetPath);
+        }
+
+        return targetDir;
+    }
 }
