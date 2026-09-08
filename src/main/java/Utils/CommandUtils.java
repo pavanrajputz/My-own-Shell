@@ -2,6 +2,7 @@ package Utils;
 
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -26,12 +27,14 @@ public class CommandUtils {
         return Arrays.stream(path.split(":")).collect(Collectors.toList());
     }
 
-    public static File resolvePath(String targetPath) {
+    public static File resolvePath(String targetPath) throws IOException {
         File targetDir = new File(targetPath);
 
         if(!targetDir.isAbsolute()){
             targetDir = new File(System.getProperty("user.dir"), targetPath);
         }
+
+        targetDir = targetDir.getCanonicalFile();
 
         return targetDir;
     }
